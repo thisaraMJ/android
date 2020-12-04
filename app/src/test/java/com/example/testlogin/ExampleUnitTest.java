@@ -1,4 +1,4 @@
-package com.example.fadtsapp;
+package com.example.testlogin;
 
 import org.junit.Test;
 
