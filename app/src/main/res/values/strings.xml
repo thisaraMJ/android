@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">testLogin</string>
+    <string name="app_name">FADTS</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-    <string name="signin">Sign In</string>
+    <string name="signin">SignUp</string>
     <string name="full_name">Full name</string>
     <string name="email">Email</string>
+    <string name="backToLogin">Already have an account? Login</string>
+    <string name="signinText">Create an account</string>
 
 </resources>
