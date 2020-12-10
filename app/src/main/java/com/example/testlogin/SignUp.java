@@ -38,9 +38,21 @@ public class SignUp extends AppCompatActivity {
 
         progressBar = findViewById(R.id.prograssBar);
 
+
+        loginLinkObject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                fileList();
+            }
+        });
+
         btnSignInObject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                 final String fullname,email,username,password;
 
@@ -49,50 +61,59 @@ public class SignUp extends AppCompatActivity {
                 username = String.valueOf(usernameObject.getText());
                 password = String.valueOf(passwordObject.getText());
 
+
                 if(!fullname.equals("") && !email.equals("") && !username.equals("") && !password.equals("")) {
 
-                    progressBar.setVisibility(View.VISIBLE);
 
-                    Handler handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            //Starting Write and Read data with URL
-                            //Creating array for parameters
-                            String[] field = new String[4];
-                            field[0] = "fullname";
-                            field[1] = "email";
-                            field[2] = "username";
-                            field[3] = "password";
 
-                            //Creating array for data
-                            String[] data = new String[4];
-                            data[0] = fullname;
-                            data[1] = email;
-                            data[2] = username;
-                            data[3] = password;
+                    if (!email.matches(emailPattern)){
+                        Toast.makeText(getApplicationContext(),"Invalid email address!",Toast.LENGTH_SHORT).show();
+                    }else {
 
-                            PutData putData = new PutData("http://192.168.8.143/android/php/signup.php", "POST", field, data);
-                            if (putData.startPut()) {
-                                if (putData.onComplete()) {
+                        progressBar.setVisibility(View.VISIBLE);
 
-                                    progressBar.setVisibility(View.GONE);
+                        Handler handler = new Handler(Looper.getMainLooper());
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                //Starting Write and Read data with URL
+                                //Creating array for parameters
+                                String[] field = new String[4];
+                                field[0] = "fullname";
+                                field[1] = "email";
+                                field[2] = "username";
+                                field[3] = "password";
 
-                                    String result = putData.getResult();
-                                    //End ProgressBar (Set visibility to GONE)
+                                //Creating array for data
+                                String[] data = new String[4];
+                                data[0] = fullname;
+                                data[1] = email;
+                                data[2] = username;
+                                data[3] = password;
 
-                                    if (result.equals("Sign Up Success")){
-                                        Intent intent = new Intent(getApplicationContext(),Login.class);
-                                        startActivity(intent);
-                                        fileList();
-                                    }else {
-                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                PutData putData = new PutData("http://192.168.8.143/android/php/signup.php", "POST", field, data);
+                                if (putData.startPut()) {
+                                    if (putData.onComplete()) {
+
+                                        progressBar.setVisibility(View.GONE);
+
+                                        String result = putData.getResult();
+                                        //End ProgressBar (Set visibility to GONE)
+
+                                        if (result.equals("Sign Up Success")) {
+                                            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(getApplicationContext(), Login.class);
+                                            startActivity(intent);
+                                            finish();
+                                        } else {
+                                            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                        }
                                     }
                                 }
+                                //End Write and Read data with URL
                             }
-                            //End Write and Read data with URL
-                        }
-                    });
+                        });
+                    }
                 }else {
                     Toast.makeText(getApplicationContext(),"All fields required!",Toast.LENGTH_SHORT).show();
                 }
