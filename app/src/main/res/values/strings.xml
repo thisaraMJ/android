@@ -8,5 +8,13 @@
     <string name="email">Email</string>
     <string name="backToLogin">Already have an account? Login</string>
     <string name="signinText">Create an account</string>
+    <string name="welcome">Welcome to FADTS</string>
+    <string name="search_here">search here</string>
+    <string name="about_app">About app</string>
+    <string name="main_description">This app work as a alternative to the FADTS web application for village officers to make easy their field works.</string>
+    <string name="home">home</string>
+    <string name="profile">profile</string>
+    <string name="calender">calender</string>
+    <string name="logout">logout</string>
 
 </resources>

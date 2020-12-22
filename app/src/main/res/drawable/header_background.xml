@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="ExtraText">               <!-- kjkjh -->
+    android:shape="rectangle"
+
+    <gradient
+        android:angle="270"
+        android:endColor="@color/colorTrendingEnd"
+        android:startColor="@color/colorTrendingStart" />
+
+    <corners
+        android:bottomLeftRadius="30dp"
+        android:bottomRightRadius="30dp"/>
+</shape>
