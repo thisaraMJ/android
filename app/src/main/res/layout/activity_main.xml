@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
@@ -98,12 +100,13 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="414dp"
-        android:layout_height="589dp"
+        android:layout_width="match_parent"
+        android:layout_height="568dp"
         android:overScrollMode="never"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
         app:layout_constraintVertical_bias="0.0"
@@ -117,7 +120,7 @@
                 android:id="@+id/layoutUpdatePeople"
                 android:layout_width="146dp"
                 android:layout_height="155dp"
-                android:layout_marginStart="25dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="28dp"
                 android:background="@drawable/white_rectangle_background"
                 android:gravity="center"
@@ -153,7 +156,7 @@
                 android:layout_width="146dp"
                 android:layout_height="155dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginEnd="25dp"
+                android:layout_marginEnd="10dp"
                 android:background="@drawable/white_rectangle_background"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -187,7 +190,7 @@
                 android:id="@+id/layoutFundRelease"
                 android:layout_width="146dp"
                 android:layout_height="155dp"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/white_rectangle_background"
                 android:gravity="center"
@@ -223,7 +226,7 @@
                 android:layout_width="146dp"
                 android:layout_height="155dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="25dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/white_rectangle_background"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -265,7 +268,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@id/layoutUpdatePeople"
                 app:layout_constraintTop_toBottomOf="@id/layoutFundRelease"
-                app:layout_constraintVertical_bias="1.0">
+                app:layout_constraintVertical_bias="0.0">
 
                 <TextView
                     android:id="@+id/textDescription"
@@ -309,6 +312,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
@@ -332,30 +336,18 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="4"
-            android:text="© 2020, 2nd Year Group Project | UCSC"
+            android:paddingBottom="10dp"
+            android:text="@string/footer_note"
             android:textAlignment="center"
             android:textColor="@color/greyText"
             android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawerLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/navigationView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            >
-
-        </com.google.android.material.navigation.NavigationView>
-
-    </androidx.drawerlayout.widget.DrawerLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
